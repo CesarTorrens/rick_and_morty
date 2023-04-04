@@ -14,7 +14,7 @@ export default function Cards({ characters, onClose, id }) {
             origin={character.origin}
             species={character.species}
             status={character.status}
-            onClose={() => onClose(id)}
+            onClose={onClose}
           />
         );
       })}
