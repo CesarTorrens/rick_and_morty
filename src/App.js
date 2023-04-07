@@ -1,11 +1,33 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { getCharacter } from './services/api';
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav';
+import About from './components/About'
+import Detail from './components/Detail';
+import Error from './components/Error';
+import Form from './components/Form';
 
 function App() {
+   const { pathname } = useLocation()
    const [characters, setCharacters] = useState([])
+   const [access, setAccess] = useState(false)
+   const EMAIL = 'cesar@gmail.com'
+   const PASSWORD = 'cesar1'
+   const navigate = useNavigate()
+
+   const login = (userData) => {
+      if (userData.email === EMAIL && userData.password === PASSWORD) {
+         setAccess(true)
+         navigate('/home')
+      } else alert('Datos incorrectos')
+   }
+   const logOut = () => setAccess(false)
+   
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
 
    const onClose = (id) => {
       let charFilter = characters.filter(char => char.id !== parseInt(id))
@@ -25,8 +47,14 @@ function App() {
    
    return (
       <div className='App'>
-         <Nav onSearch={onSearch} randomChar={randomChar} />
-         <Cards id={characters.id} onClose={onClose} characters={characters} />
+         { pathname !== '/' &&  <Nav onSearch={onSearch} randomChar={randomChar} logOut={logOut}/>  }
+         <Routes>
+            <Route path='/' element={<Form login={login} />} />
+            <Route path='/home' element={<Cards id={characters.id} onClose={onClose} characters={characters} />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/detail/:id' element={<Detail />} />
+            <Route path='/*' element={<Error />} />
+         </Routes>
       </div>
    );
 }
