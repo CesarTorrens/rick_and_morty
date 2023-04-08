@@ -29,7 +29,7 @@ function App() {
    }, [access]);
 
    const onClose = (id) => {
-      let charFilter = characters.filter(char => char.id !== parseInt(id))
+      let charFilter = characters.filter(char => char.id !== id)
       setCharacters(charFilter)
    }
    

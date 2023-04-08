@@ -3,19 +3,20 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import style from "./detail.module.css";
 
+const URL_BASE = "https://be-a-rym.up.railway.app/api/character";
+const API_KEY = "c32d2cce95b4.6893e1250f8859761df8";
+
 export default function Detail() {
   const { id } = useParams();
   const [character, setCharacter] = useState({});
   useEffect(() => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacter(data);
-        } else {
-          window.alert("No hay personajes con ese ID");
-        }
+    axios(`${URL_BASE}/${id}?key=${API_KEY}`).then(({ data }) => {
+      if (data.name) {
+        setCharacter(data);
+      } else {
+        window.alert("No hay personajes con ese ID");
       }
-    );
+    });
     return setCharacter({});
   }, [id]);
   if (character.name) {
