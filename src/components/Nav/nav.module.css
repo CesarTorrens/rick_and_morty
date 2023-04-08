@@ -1,0 +1,55 @@
+.containerNav {
+    background: #8b8080;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.buttonsLeft {
+    display: flex;
+    gap: 1rem;
+}
+
+.buttonsHome, .buttonsAbout, .buttonLogOut, .randomButton{
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+    transition: all 500ms;
+    cursor: pointer;
+}
+
+.buttonsHome, .buttonsAbout {
+    background: transparent;
+    border: 1px solid white;
+}
+
+.buttonsHome:hover, .buttonsAbout:hover, .randomButton:hover, .buttonLogOut:hover {
+    opacity: 0.7;
+}
+
+.buttonLogOut {
+    background: red;
+    border: none;
+}
+
+.randomButton {
+    background: purple;
+    border: none;
+}
+
+
+.searchBarContainer {
+    display: flex;
+    gap: 10px;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import style from "./detail.module.css";
 
 export default function Detail() {
   const { id } = useParams();
@@ -17,16 +18,21 @@ export default function Detail() {
     );
     return setCharacter({});
   }, [id]);
-  console.log(character);
   if (character.name) {
     return (
-      <div>
-        <h2>{character.name}</h2>
-        <img src={character.image} alt={`Imagen de ${character.name}`} />
-        <h4> STATUS | {character.status} </h4>
-        <h4> GENDER | {character.gender} </h4>
-        <h4> SPECIE | {character.species} </h4>
-        <h4> ORIGIN | {character.origin.name} </h4>
+      <div className={style.container}>
+        <img
+          className={style.img}
+          src={character.image}
+          alt={`Imagen de ${character.name}`}
+        />
+        <div className={style.containerData}>
+          <h2 className={style.name}>{character.name}</h2>
+          <h4 className={style.status}> STATUS | {character.status} </h4>
+          <h4 className={style.gender}> GENDER | {character.gender} </h4>
+          <h4 className={style.species}> SPECIE | {character.species} </h4>
+          <h4 className={style.origin}> ORIGIN | {character.origin.name} </h4>
+        </div>
       </div>
     );
   }

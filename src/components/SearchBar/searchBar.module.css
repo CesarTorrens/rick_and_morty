@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+    transition: all 500ms;
+    cursor: pointer;
+    background: rgb(2, 177, 2);
+    border: none;
+}
+.button:hover {
+    opacity: 0.8;
+}
+
+.input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    outline: none;
+    width: 3rem;
+    text-align: center;
+}
