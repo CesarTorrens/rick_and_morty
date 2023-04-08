@@ -1,8 +1,7 @@
-import './App.css';
 import { useState, useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { getCharacter } from './services/api';
-import Cards from './components/Cards.jsx';
+import Cards from './components/Cards';
 import Nav from './components/Nav';
 import About from './components/About'
 import Detail from './components/Detail';

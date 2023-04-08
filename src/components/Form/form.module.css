@@ -1,0 +1,96 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerImg {
+    width: 50%;
+    background-image: url('https://fisoloji.com/wp-content/uploads/2022/12/Rick-and-morty-wallpaper-360.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.containerForm {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    background:  radial-gradient(circle, rgba(189,201,73,1) 0%, rgba(148,233,178,1) 100%);;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    margin: auto;
+    gap: 1rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 2rem;
+    background: radial-gradient(circle, rgba(189,201,73,1) 0%, rgba(148,233,178,1) 100%);
+    box-shadow: #273a4f 0px 20px 30px -10px;
+}
+.title, .subtitle, .label {
+    color: #644f9c;
+}
+.title, .subtitle {
+    text-align: center;
+}
+.label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    justify-content: start;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid #3B36A1;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0.5rem;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    transition: all 500ms;
+}
+
+.input:hover {
+    background: rgb(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgb(59, 54, 161, 0.5);
+}
+
+.input::placeholder {
+    font-weight: 300;
+    color: #644f9c;
+    font-style: italic;
+}
+
+.input:focus, .input:active {
+    border-bottom: 1px solid #3B36A1;
+}
+
+.warning {
+    color: red;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.button {
+    padding: 0.4rem;
+    width: 10rem;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 auto;
+    border: none;
+    border-radius: 0.4rem;
+    background: #644f9c;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: all 500ms;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
