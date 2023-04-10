@@ -26,9 +26,9 @@ function App() {
    const logOut = () =>  setAccess(false)
    
    useEffect(() => {
-      !access && pathname !== '/' && navigate('/');
+      !access && navigate('/');
       console.log(access)
-   }, [access, pathname]);
+   }, [access, navigate]);
 
    const onClose = (id) => {
       let charFilter = characters.filter(char => char.id !== id)
