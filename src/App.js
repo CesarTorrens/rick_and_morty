@@ -23,11 +23,12 @@ function App() {
          navigate('/home')
       } else alert('Datos incorrectos')
    }
-   const logOut = () => setAccess(false)
+   const logOut = () =>  setAccess(false)
    
    useEffect(() => {
-      !access && navigate('/');
-   }, [access]);
+      !access && pathname !== '/' && navigate('/');
+      console.log(access)
+   }, [access, pathname]);
 
    const onClose = (id) => {
       let charFilter = characters.filter(char => char.id !== id)
