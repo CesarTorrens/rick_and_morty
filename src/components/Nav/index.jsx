@@ -13,8 +13,15 @@ export default function Nav({ onSearch, randomChar, logOut }) {
               Home
             </Link>
           </button>
+          <button className={style.buttonsHome}>
+            <Link className={style.link} to="/favorites">
+              Favorites
+            </Link>
+          </button>
           <button className={style.buttonsAbout}>
-            <Link to="/about">About</Link>
+            <Link className={style.link} to="/about">
+              About
+            </Link>
           </button>
         </div>
         <div className={style.searchBarContainer}>

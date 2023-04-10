@@ -3,7 +3,14 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
     padding: 20px;
+}
+
+.containerFav {
     max-width: 1440px;
     margin: 0 auto;
+}
+
+.title {
+    padding-left: 20px;
 }
 

@@ -7,6 +7,7 @@ import About from './components/About'
 import Detail from './components/Detail';
 import Error from './components/Error';
 import Form from './components/Form';
+import Favorites from './components/Favorites'
 
 function App() {
    const { pathname } = useLocation()
@@ -52,6 +53,7 @@ function App() {
             <Route path='/home' element={<Cards id={characters.id} onClose={onClose} characters={characters} />} />
             <Route path='/about' element={<About />} />
             <Route path='/detail/:id' element={<Detail />} />
+            <Route path='/favorites' element={<Favorites onClose={onClose} />} />
             <Route path='/*' element={<Error />} />
          </Routes>
       </div>

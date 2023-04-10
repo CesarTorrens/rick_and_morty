@@ -6,7 +6,7 @@
 }
 .containerImg {
     width: 50%;
-    background-image: url('https://fisoloji.com/wp-content/uploads/2022/12/Rick-and-morty-wallpaper-360.jpg');
+    background-image: url('https://doitbeforeme.com/wp-content/uploads/2023/01/lockscreen-rick-and-morty-wallpaper.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -18,7 +18,7 @@
     display: flex;
     padding-left: 20px;
     padding-right: 20px;
-    background:  radial-gradient(circle, rgba(189,201,73,1) 0%, rgba(148,233,178,1) 100%);;
+    background:  radial-gradient(circle, rgba(189,201,73,1) 0%, rgba(148,233,178,1) 100%);
 }
 .form {
     display: flex;

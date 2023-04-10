@@ -1,20 +1,60 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import style from "./card.module.css";
+import { addFav, removeFav } from "../../redux/actions";
+import { connect } from "react-redux";
 
-export default function Card(props) {
+export function Card(props) {
+  const { addFav, removeFav, myFavorites } = props;
+  const [isFav, setIsFav] = useState(false);
+
+  const handleFavorite = () => {
+    if (isFav) {
+      setIsFav(false);
+      removeFav(props.id);
+    } else {
+      setIsFav(true);
+      addFav(props);
+    }
+  };
+
+  const onDelete = (id) => {
+    props.onClose(id);
+    removeFav(id);
+  };
+
+  useEffect(() => {
+    for (let i = 0; i < myFavorites.length; i++) {
+      if (myFavorites[i].id === props.id) {
+        setIsFav(true);
+      }
+    }
+    // myFavorites.forEach((favorite) => {
+    //   if (favorite.id === props.id) {
+    //     setIsFav(true);
+    //   }
+    // });
+  }, [myFavorites]);
+
   return (
     <div className={style.container}>
+      <button className={style.button} onClick={() => onDelete(props.id)}>
+        Eliminar
+      </button>
       <img className={style.img} src={props.image} alt={props.name} />
       <div className={style.containerName}>
-        <Link to={`/detail/${props.id}`}>
-          <p className={style.name}> {props.name} </p>
+        <Link className={style.name} to={`/detail/${props.id}`}>
+          <p className={style.linkName}>{props.name}</p>
         </Link>
-        <button
-          className={style.button}
-          onClick={() => props.onClose(props.id)}
-        >
-          Eliminar
-        </button>
+        {isFav ? (
+          <button className={style.likeButton} onClick={handleFavorite}>
+            ❤️
+          </button>
+        ) : (
+          <button className={style.likeButton} onClick={handleFavorite}>
+            🤍
+          </button>
+        )}
       </div>
       <div className={style.data}>
         <span className={style.status}> {props.status} </span>
@@ -25,3 +65,18 @@ export default function Card(props) {
     </div>
   );
 }
+
+export const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+  };
+};
+
+export const mapDispatchToProps = (dispatch) => {
+  return {
+    addFav: (character) => dispatch(addFav(character)),
+    removeFav: (id) => dispatch(removeFav(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
