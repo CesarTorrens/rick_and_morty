@@ -18,7 +18,7 @@
     display: flex;
     padding-left: 20px;
     padding-right: 20px;
-    background:  radial-gradient(circle, rgba(189,201,73,1) 0%, rgba(148,233,178,1) 100%);
+    background: linear-gradient(266deg, rgba(96,245,189,1) 0%, rgba(54,174,147,1) 35%, rgba(252,109,96,1) 100%);
 }
 .form {
     display: flex;
@@ -29,7 +29,7 @@
     border: none;
     border-radius: 1rem;
     padding: 2rem;
-    background: radial-gradient(circle, rgba(189,201,73,1) 0%, rgba(148,233,178,1) 100%);
+    background: linear-gradient(90deg, rgba(96,245,189,1) 0%, rgba(54,174,147,1) 35%, rgba(252,109,96,1) 100%);
     box-shadow: #273a4f 0px 20px 30px -10px;
 }
 .title, .subtitle, .label {
