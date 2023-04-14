@@ -79,22 +79,23 @@
 }
 
 .button {
-    padding: 0.4rem;
-    width: 10rem;
+    padding: 1rem;
     cursor: pointer;
-    color: white;
+    color: #644f9c;
     font-size: 1rem;
     font-weight: 600;
     margin: 0 auto;
     border: none;
     border-radius: 0.4rem;
-    background: #644f9c;
+    background: transparent;
+    background: linear-gradient(266deg, rgba(96,245,189,1) 0%, rgba(54,174,147,1) 35%, rgba(252,109,96,1) 100%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     transition: all 500ms;
 }
 
 .button:hover {
-    opacity: 0.8;
+    color: white;
+    background: linear-gradient(90deg, rgba(96,245,189,1) 0%, rgba(54,174,147,1) 35%, rgba(252,109,96,1) 100%);
 }
 
 @media (max-width: 700px) {

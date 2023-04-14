@@ -57,10 +57,10 @@ export function Card(props) {
         )}
       </div>
       <div className={style.data}>
-        <span className={style.status}> {props.status} </span>
-        <span className={style.species}> {props.species} </span>
-        <span className={style.gender}> {props.gender} </span>
-        <span className={style.origin}> {props.origin.name} </span>
+        <p className={style.status}> {props.status} </p>
+        <p className={style.species}> {props.species} </p>
+        <p className={style.gender}> {props.gender} </p>
+        <p className={style.origin}> {props.origin.name} </p>
       </div>
     </div>
   );

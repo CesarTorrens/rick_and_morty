@@ -5,7 +5,7 @@ import Card from "../Card";
 import { useDispatch } from "react-redux";
 import { orderCards, filterCards } from "../../redux/actions";
 
-export function Favorites({ myFavorites, onClose, allCharacters }) {
+export function Favorites({ myFavorites, onClose }) {
   const [aux, setAux] = React.useState(false);
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ export function Favorites({ myFavorites, onClose, allCharacters }) {
   useEffect(() => {
     dispatch(filterCards("Todos"));
     dispatch(orderCards("D"));
-  }, []);
+  }, [dispatch]);
   return (
     <div className={style.containerFav}>
       <h2 className={style.title}>Tus Personajes Favoritos</h2>
@@ -39,7 +39,7 @@ export function Favorites({ myFavorites, onClose, allCharacters }) {
         <option value={"unknown"}>unknown</option>
       </select>
       <div className={style.container}>
-        {myFavorites.map((character) => {
+        {myFavorites?.map((character) => {
           return (
             <Card
               key={character.id}
