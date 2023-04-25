@@ -60,7 +60,7 @@ export function Card(props) {
         <p className={style.status}> {props.status} </p>
         <p className={style.species}> {props.species} </p>
         <p className={style.gender}> {props.gender} </p>
-        <p className={style.origin}> {props.origin.name} </p>
+        <p className={style.origin}> {props.origin?.name} </p>
       </div>
     </div>
   );

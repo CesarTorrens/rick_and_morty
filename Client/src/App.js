@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios'
 import { getCharacter } from './services/api';
 import Cards from './components/Cards';
 import Nav from './components/Nav';
@@ -13,15 +14,22 @@ function App() {
    const { pathname } = useLocation()
    const [characters, setCharacters] = useState([])
    const [access, setAccess] = useState(false)
-   const EMAIL = 'cesar@gmail.com'
-   const PASSWORD = 'cesar1'
+   // const EMAIL = 'cesar@gmail.com'
+   // const PASSWORD = 'cesar1'
    const navigate = useNavigate()
 
-   const login = (userData) => {
-      if (userData.email === EMAIL && userData.password === PASSWORD) {
-         setAccess(true)
-         navigate('/home')
-      } else alert('Datos incorrectos')
+   const login = async (userData) => {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login';
+      try {
+         const { data } = await axios(`${URL}?email=${email}&password=${password}`)
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      } catch (error) {
+         throw new Error(error.message)
+      }
+
    }
    const logOut = () =>  setAccess(false)
    
@@ -36,8 +44,9 @@ function App() {
    }
    
    const onSearch = (id) => {
+      if (!id) return alert('Debe ingresor un id')
       const inCharacters = characters.some(char => char.id === parseInt(id) )
-      if (!inCharacters)  getCharacter(id, setCharacters)        
+      if (!inCharacters) getCharacter(id, setCharacters)        
       else alert(`este personaje ya se encuentra en la lista`)
    }
 
